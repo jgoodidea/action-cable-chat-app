@@ -2,5 +2,5 @@
 @import 'bootstrap-icons/font/bootstrap-icons';
 
 @function opaque($background, $foreground) {
-    @return mix(rgba($foreground, 1), $background, opacity($foreground) * 100);
+    @return mix(rgba($foreground, 1), $background, opacity($foreground) * 100%);
 }
