@@ -1,7 +1,9 @@
 var messagesRef = document.getElementById("chatbox")
 
 function init() {
-    messagesRef.scrollTop = messagesRef.scrollHeight;
+    if (messagesRef !== null) {
+        messagesRef.scrollTop = messagesRef.scrollHeight;
+    }
 }
 
 window.setTimeout(init, 50);

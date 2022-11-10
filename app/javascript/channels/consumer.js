@@ -3,4 +3,4 @@
 
 import { createConsumer } from "@rails/actioncable"
 
-export default createConsumer()
+export default createConsumer(document.querySelector('meta[name=action-cable-url]').content)

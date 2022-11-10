@@ -2,14 +2,23 @@ import consumer from "./consumer"
 
 consumer.subscriptions.create("ChatChannel", {
   connected() {
-    // Called when the subscription is ready for use on the server
+    console.log('Connected to the Chat channel');
   },
 
   disconnected() {
-    // Called when the subscription has been terminated by the server
+    console.log('Disconnected from the Chat channel');
   },
 
   received(data) {
-    // Called when there's incoming data on the websocket for this channel
+    var messagesRef = document.getElementById("chatbox")
+
+    // convert string to html element
+    var div = document.createElement('div');
+    div.innerHTML = data['message'].trim();
+
+    if (messagesRef !== null) {
+      messagesRef.append(div.firstChild);
+      messagesRef.scrollTop = messagesRef.scrollHeight;
+    }
   }
 });
