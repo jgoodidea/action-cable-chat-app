@@ -1,3 +1,10 @@
+.alert-alert {
+    @extend .alert-danger;
+}
+.alert-notice {
+    @extend .alert-success;
+}
+
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 

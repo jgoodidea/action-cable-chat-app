@@ -1,2 +1,22 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="jumbotron">
+    <h1 style="text-align:center;">Chatter</h1>
+    <div class="well" id="chatbox" style="height: 250px; border: solid 1px #222222; overflow-y: scroll;">
+        <% @messages.each do |message| %>
+            <%= render 'messages/message', message: message %>
+        <% end %>
+    </div>
+    <% if current_user %>
+        <%= form_with model: @message do |f| %>
+            <div class="input-group mb-3">
+                <%= f.text_field :body, placeholder: "Say something ...", class: "form-control" %>
+                <div class="input-group-append">
+                    <%= f.submit "Send", class: "btn btn-secondary" %>
+                </div>
+            </div>
+        <% end %>
+    <% else %>
+        <p style="text-align: center;">
+            You need to be <%= link_to "Signed in", new_user_session_path %> in order to chat!
+        </p>
+    <% end %>
+</div>
